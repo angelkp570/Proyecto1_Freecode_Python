@@ -90,14 +90,26 @@ def resultado(A):
 
   A[3]=space+A[3]
 
+def numOperaciones(operaciones):
+  try:
+    if (operaciones > 5):
+      raise
+    else:
+      return
+  except:
+    print("Error: Too many problems")
+
+
   
 #======================================================================
 # Programa principal 
 #======================================================================
-oper=["34+15","12-200"]
+oper=["34+15","12-200","34+15","12-200","34+15","12-200"]
+
+numOperaciones(oper)
 
 #cadena de prueba 
-t="150 - 10"
+t="1 - 3801"
 #t="10 + 150"
 nums=Operacion(t)
  
