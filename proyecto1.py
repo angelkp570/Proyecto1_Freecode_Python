@@ -92,7 +92,7 @@ def resultado(A):
 
 def numOperaciones(operaciones):
   try:
-    if (operaciones > 5):
+    if (len(operaciones) > 5):
       raise
     else:
       return
@@ -105,6 +105,7 @@ def numOperaciones(operaciones):
 # Programa principal 
 #======================================================================
 oper=["34+698","3801- 2"," 45+43 ","123 + 49","34+15"]
+print(oper)
 
 numOperaciones(oper)
 
@@ -132,7 +133,7 @@ for t in oper:
     simbolo(nums)
     resultado(nums)
 
-  formato(nums)
+  #formato(nums)
 
   dict_oper[indice]=nums
   indice+=1
@@ -145,8 +146,16 @@ print(dict_oper[1][1])
 
 print(nums)
 """
+"""
 print("Formato")
 formato(nums)
 
 print("Diccionario")
 print(dict_oper)
+"""
+for k in range(4):
+  for i in range(5):
+    print(dict_oper[i+1][k],end="")
+    print("    ", end="")
+  
+  print()
