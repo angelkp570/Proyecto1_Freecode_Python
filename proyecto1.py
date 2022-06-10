@@ -111,26 +111,28 @@ numOperaciones(oper)
 #cadena de prueba 
 t="1 - 3801"
 #t="10 + 150"
-nums=Operacion(t)
- 
-print(nums)
 
-if (len(nums[0])>len(nums[1])):
-  raya(nums)                                                                                                          
-  #print(numEspacios(nums))
-  agregarEsp(nums,numEspacios(nums))
-  dosEspacios(nums)    
-  simbolo(nums)
-  resultado(nums)
+for t in oper:
+  nums=Operacion(t)
+  
+  print(nums)
 
-elif (len(nums[0])<len(nums[1])):
-  raya2(nums)
-  agregarEsp2(nums,numEspacios(nums))
-  dosEspacios(nums) 
-  simbolo(nums)
-  resultado(nums)
+  if ((len(nums[0])>len(nums[1])) or (len(nums[0])==len(nums[1]))):
+    raya(nums)                                                                                                          
+    #print(numEspacios(nums))
+    agregarEsp(nums,numEspacios(nums))
+    dosEspacios(nums)    
+    simbolo(nums)
+    resultado(nums)
 
-formato(nums)
+  elif (len(nums[0])<len(nums[1])):
+    raya2(nums)
+    agregarEsp2(nums,numEspacios(nums))
+    dosEspacios(nums) 
+    simbolo(nums)
+    resultado(nums)
+
+  formato(nums)
 
 """
 dict_oper[1]=nums
@@ -140,3 +142,5 @@ print(dict_oper[1][1])
 
 print(nums)
 """
+print("Formato")
+formato(nums)
