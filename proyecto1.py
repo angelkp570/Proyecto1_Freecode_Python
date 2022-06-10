@@ -104,19 +104,19 @@ def numOperaciones(operaciones):
 #======================================================================
 # Programa principal 
 #======================================================================
-oper=["34+15","12-200","34+15","12-200","34+15","12-200"]
+oper=["34+698","3801- 2"," 45+43 ","123 + 49","34+15"]
 
 numOperaciones(oper)
 
 #cadena de prueba 
 t="1 - 3801"
 #t="10 + 150"
-
+indice=1
 for t in oper:
   nums=Operacion(t)
   
-  print(nums)
-
+  #print(nums)
+  
   if ((len(nums[0])>len(nums[1])) or (len(nums[0])==len(nums[1]))):
     raya(nums)                                                                                                          
     #print(numEspacios(nums))
@@ -134,6 +134,9 @@ for t in oper:
 
   formato(nums)
 
+  dict_oper[indice]=nums
+  indice+=1
+
 """
 dict_oper[1]=nums
 print(dict_oper)
@@ -144,3 +147,6 @@ print(nums)
 """
 print("Formato")
 formato(nums)
+
+print("Diccionario")
+print(dict_oper)
