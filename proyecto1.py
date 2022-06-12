@@ -5,12 +5,13 @@ operador=""
 
 dict_oper={}
 
+#======================================================================
+# Declaración de funciones
+#======================================================================
 def formato(cadena):
   for i in range(len(cadena)):
     
     print(cadena[i])
-
-    
 
 def Operacion(cadena):
   global operador
@@ -92,19 +93,26 @@ def resultado(A):
 
 def numOperaciones(operaciones):
   try:
-    if (len(operaciones) > 5):
-      raise
-    else:
-      return
-  except:
+    assert len(operaciones)<6
+    #if (len(operaciones) > 5):
+    #  raise
+    
+    return
+  except AssertionError:
     print("Error: Too many problems")
 
-
+def printFormat():
+  for k in range(4):
+    for i in range(5):
+      print(dict_oper[i+1][k],end="")
+      print("    ", end="")
+    
+    print()
   
 #======================================================================
 # Programa principal 
 #======================================================================
-oper=["34+698","3801- 2"," 45+43 ","123 + 49","34+15"]
+oper=["34+698","3801- 2"," 45+43 ","123 + 49","34+15","34+15"]
 print(oper)
 
 numOperaciones(oper)
@@ -138,24 +146,5 @@ for t in oper:
   dict_oper[indice]=nums
   indice+=1
 
-"""
-dict_oper[1]=nums
-print(dict_oper)
-print(dict_oper[1][1])
 
-
-print(nums)
-"""
-"""
-print("Formato")
-formato(nums)
-
-print("Diccionario")
-print(dict_oper)
-"""
-for k in range(4):
-  for i in range(5):
-    print(dict_oper[i+1][k],end="")
-    print("    ", end="")
-  
-  print()
+printFormat()
