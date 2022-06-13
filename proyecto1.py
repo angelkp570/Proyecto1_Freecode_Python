@@ -101,68 +101,75 @@ def resultado(A):
   A[3]=space+A[3]
 
 
-def printFormat():
-  for k in range(4):
+def printFormat(status):
+  if (status == False):
+    rango=3
+  else:
+    rango=4
+
+  for k in range(rango):
     for i in range(5):
       print(dict_oper[i+1][k],end="")
       print("    ", end="")
     
     print()
 
-def arithmetic_arranger(cadena, status=False):
-  pass
+def arithmetic_arranger(oper, status=False):
+
+  try:
+    for i in oper:
+      if (('/' in i) or ('*' in i) ):
+        raise
+
+    try:
+      if(len(oper)>5):
+        raise
+
+      try:
+
+        #assert len(oper)<6
+        indice=1
+        for t in oper:
+          nums=Operacion(t)
+          
+          #print(nums)
+          
+          if ((len(nums[0])>len(nums[1])) or (len(nums[0])==len(nums[1]))):
+            raya(nums)                                                                                                          
+            #print(numEspacios(nums))
+            agregarEsp(nums,numEspacios(nums))
+            dosEspacios(nums)    
+            simbolo(nums)
+            resultado(nums)
+
+          elif (len(nums[0])<len(nums[1])):
+            raya2(nums)
+            agregarEsp2(nums,numEspacios(nums))
+            dosEspacios(nums) 
+            simbolo(nums)
+            resultado(nums)
+          #formato(nums)
+          dict_oper[indice]=nums
+          indice+=1
+
+        printFormat(status)
+
+      except AssertionError:
+        print("Error: Numbers cannot be more than four digits.")
+
+      except ValueError:
+        print("Error: Numbers must only contain digits.")
+
+    except:
+      print("Error: Too many problems.")
+  except:
+    print("Error: Operator must be '+' or '-'.")
+  
   
 #======================================================================
 # Programa principal 
 #======================================================================
-oper=["34+698","3801+ 2"," 45+43 ","12345 + 49","34-15"]
+oper=["34+698","3801+ 2"," 45+43 ","123 + 49","34-15"]
 print(oper)
 
-try:
-  for i in oper:
-    if (('/' in i) or ('*' in i) ):
-      raise
-
-  try:
-    if(len(oper)>5):
-      raise
-
-    try:
-
-      #assert len(oper)<6
-      indice=1
-      for t in oper:
-        nums=Operacion(t)
-        
-        #print(nums)
-        
-        if ((len(nums[0])>len(nums[1])) or (len(nums[0])==len(nums[1]))):
-          raya(nums)                                                                                                          
-          #print(numEspacios(nums))
-          agregarEsp(nums,numEspacios(nums))
-          dosEspacios(nums)    
-          simbolo(nums)
-          resultado(nums)
-
-        elif (len(nums[0])<len(nums[1])):
-          raya2(nums)
-          agregarEsp2(nums,numEspacios(nums))
-          dosEspacios(nums) 
-          simbolo(nums)
-          resultado(nums)
-        #formato(nums)
-        dict_oper[indice]=nums
-        indice+=1
-
-      printFormat()
-
-    except AssertionError:
-      print("Error: Numbers cannot be more than four digits.")
-
-    except ValueError:
-      print("Error: Numbers must only contain digits.")
-
-  except:
-    print("Error: Too many problems.")
-except:
-  print("Error: Operator must be '+' or '-'.")
+arithmetic_arranger(oper,True)
